@@ -1,7 +1,16 @@
-import MealsList from "@/components/meals/meals-list";
-import Link from "next/link";
+import MealsList from '@/components/meals/meals-list';
+import { getMeals } from '@/lib/meals';
+import { MealItemTypes } from '@/types/types';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import MealsLoading from './loading-old';
 
-export default function Meals() {
+async function MealsOther() {
+  const meals = (await getMeals()) as MealItemTypes[];
+  return <MealsList meals={meals} />;
+}
+
+export default async function Meals() {
   return (
     <>
       <header>
@@ -12,7 +21,9 @@ export default function Meals() {
         </p>
       </header>
       <main>
-        <MealsList meals={[]} />
+        <Suspense fallback={<MealsLoading />}>
+          <MealsOther />
+        </Suspense>
       </main>
     </>
   );

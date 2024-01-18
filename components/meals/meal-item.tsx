@@ -1,6 +1,6 @@
-import { MealItemTypes } from "@/types/types";
-import Image from "next/image";
-import Link from "next/link";
+import { MealItemTypes } from '@/types/types';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function MealItem({
   title,
@@ -12,7 +12,7 @@ export default function MealItem({
   return (
     <article>
       <header>
-        <Image src={image} alt={title} fill />
+        {/* <Image src={image} alt={title} fill /> */}
         <div>
           <h2>{title}</h2>
           <p>by {creator}</p>

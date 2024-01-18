@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export type MealItemTypes = {
   id: string;
@@ -7,4 +7,5 @@ export type MealItemTypes = {
   image: StaticImageData;
   summary: string;
   creator: string;
+  instructions: string;
 };
